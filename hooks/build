@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Create and use a new builder instance
+docker buildx create --name multiarch --use
+
+# Build the web application for a single architecture (e.g., linux/amd64)
+docker build . -f $DOCKERFILE_PATH -t $IMAGE_NAME-builder --target build
+
+# Export the built web files to the local filesystem
+docker create --name temp-container $IMAGE_NAME-builder
+docker cp temp-container:/schildichat-web ./schildichat-web
+docker rm temp-container
+
+# Build the multi-platform image using the pre-built application
+docker buildx build . -f Dockerfile.multiplatform -t $IMAGE_NAME --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x --push

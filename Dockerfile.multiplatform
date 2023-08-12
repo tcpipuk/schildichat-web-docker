@@ -1,0 +1,4 @@
+FROM nginx:stable-alpine-slim
+
+# Copy the pre-built web files from the local filesystem
+COPY ./schildichat-web /usr/share/nginx/html

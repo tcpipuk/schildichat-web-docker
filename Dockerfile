@@ -63,8 +63,5 @@ RUN cp configs/sc/config.json element-web/ \
 # Final stage
 FROM nginx:stable-alpine-slim
 
-# Ensure the Nginx directory is empty
-RUN rm -rf /usr/share/nginx/html/*
-
 # Copy the built web files to the Nginx directory
 COPY --from=build /schildichat-web /usr/share/nginx/html

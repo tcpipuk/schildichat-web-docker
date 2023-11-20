@@ -61,7 +61,7 @@ RUN cp configs/sc/config.json element-web/ \
     && cp configs/sc/config.json /schildichat-web/
 
 # Final stage
-FROM nginx:stable-alpine-slim
+FROM nginx:mainline-alpine-slim
 
 # Copy the built web files to the Nginx directory
 COPY --from=build /schildichat-web /usr/share/nginx/html

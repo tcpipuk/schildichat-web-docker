@@ -26,9 +26,10 @@ RUN make setup
 RUN ls -lh
 RUN make web-release
 RUN ls -lh
+RUN tar -xzf release/*/*.tar.gz --strip-components=1 -C /schildichat-web
 
 # Final stage
 FROM nginx:mainline-alpine-slim
 
 # Copy the built web files to the Nginx directory
-COPY --from=build /build/schildichat-desktop/webapp /usr/share/nginx/html
+COPY --from=build /schildichat-web /usr/share/nginx/html

@@ -24,8 +24,9 @@ RUN curl -sSf https://sh.rustup.rs | sh -s -- -y \
     && source ~/.bashrc
 
 # Clone the SchildiChat repository
+ARG SCHILDICHAT_BRANCH=master
 WORKDIR /build
-RUN git clone -b master --recurse-submodules https://github.com/SchildiChat/schildichat-desktop.git
+RUN git clone -b ${SCHILDICHAT_BRANCH} --recurse-submodules https://github.com/SchildiChat/schildichat-desktop.git
 
 # Handle matrix-js-sdk
 WORKDIR /build/schildichat-desktop/matrix-js-sdk

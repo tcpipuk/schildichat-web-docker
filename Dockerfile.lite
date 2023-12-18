@@ -3,6 +3,7 @@ FROM node:19-alpine AS build
 
 # Update and install the required packages
 RUN apk --no-cache add \
+    bash \
     curl \
     gcc \
     g++ \
@@ -21,6 +22,7 @@ RUN git clone -b lite --recurse-submodules https://github.com/SchildiChat/schild
 
 # Setup and build
 WORKDIR /build/schildichat-desktop
+RUN ls -lh
 RUN make setup
 RUN make web-release
 

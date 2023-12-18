@@ -1,5 +1,5 @@
 # Build stage
-FROM alpine:latest AS build
+FROM node:19-alpine AS build
 
 # Update and install the required packages
 RUN apk --no-cache add \
@@ -10,8 +10,6 @@ RUN apk --no-cache add \
     git \
     jq \
     make \
-    nodejs \
-    npm \
     openssl-dev \
     python3 \
     tcl \

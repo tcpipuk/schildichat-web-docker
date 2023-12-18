@@ -2,18 +2,14 @@
 FROM node:19-alpine AS build
 
 # Update and install the required packages
-RUN apk add --no-cache \
+RUN apk --no-cache add \
     curl \
-    g++ \
     gcc \
+    g++ \
     git \
     jq \
-    libarchive-tools \
-    libsecret-dev \
-    libssl-dev \
     make \
     openssl-dev \
-    pkgconfig \
     python3 \
     tcl \
     vim \

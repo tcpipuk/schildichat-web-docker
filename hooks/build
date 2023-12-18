@@ -8,7 +8,7 @@ docker build . -f $DOCKERFILE_PATH -t $IMAGE_NAME-builder --target build
 
 # Export the built web files to the local filesystem
 docker create --name temp-container $IMAGE_NAME-builder
-docker cp temp-container:/schildichat-web ./schildichat-web
+docker cp temp-container:/build/schildichat-desktop/webapp ./schildichat-web
 docker rm temp-container
 
 # Build the multi-platform image using the pre-built application

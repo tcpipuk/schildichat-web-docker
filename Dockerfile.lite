@@ -23,8 +23,8 @@ RUN git clone -b lite --recurse-submodules https://github.com/SchildiChat/schild
 # Setup and build
 WORKDIR /build/schildichat-desktop
 RUN make setup
+RUN ls -lh
 RUN make web-release
-
 RUN ls -lh
 
 # Final stage

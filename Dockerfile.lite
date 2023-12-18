@@ -25,6 +25,8 @@ WORKDIR /build/schildichat-desktop
 RUN make setup
 RUN make web-release
 
+RUN ls -lh
+
 # Final stage
 FROM nginx:mainline-alpine-slim
 

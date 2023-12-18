@@ -12,7 +12,7 @@ RUN apk add --no-cache \
     libsecret-dev \
     libssl-dev \
     make \
-    openssl \
+    openssl-dev \
     pkgconfig \
     python3 \
     tcl \

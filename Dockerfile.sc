@@ -1,5 +1,5 @@
 # Build stage
-FROM node:19-alpine AS build
+FROM node:18-alpine AS build
 
 # Update and install the required packages
 RUN apk --no-cache add \
